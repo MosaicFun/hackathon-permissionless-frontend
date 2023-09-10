@@ -192,7 +192,7 @@
           <input type="button"
                  class="rounded-md bg-orange-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
                  value="Connect Wallet" onclick="connect();">
-          <div id="score" class="pt-3">
+          <div id="score" class="pt-2">
           </div>
           <div id="account">
 
@@ -202,7 +202,7 @@
         <div class="col-span-4">
           <h2 class="text-2xl font-bold">Passport Score</h2>
           <ul class="list-none pt-3">
-            <li class="font-semibold" id="scoreIndicator"><i class="fa-duotone fa-check text-green-500"></i> Score 20 or above</li>
+            <li class="font-semibold" id="scoreIndicator">Score 20 or above</li>
           </ul>
         </div>
         <div class="col-span-4">
