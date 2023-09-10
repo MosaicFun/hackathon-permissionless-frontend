@@ -1,29 +1,3 @@
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-//$address = $_GET["address"];
-//if ($address == "") {
-  // do nothing
-//} else {
-$ch = curl_init();
-
-curl_setopt($ch, CURLOPT_URL, 'https://api.scorer.gitcoin.co/registry/score/5773/0x6e997A5Fb4D8Aa8f8E60b0C2e13670aDe55d4283');
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-
-
-$headers = array();
-$headers[] = 'X-Api-Key: iMUd2T0l.CmMKg7Wi5Lely7XCk3vrMAMuSTkVwEli';
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-
-$result = curl_exec($ch);
-if (curl_errno($ch)) {
-  echo 'Error:' . curl_error($ch);
-}
-curl_close($ch);
-//}
-var_dump($result);
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,6 +7,56 @@ var_dump($result);
   <script src="https://kit.fontawesome.com/77adf10444.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css"/>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
+  <script>
+      /* To connect using MetaMask */
+      async function connect() {
+          if (window.ethereum) {
+
+              // Assuming you're within an async function or an environment that supports 'await'
+              await window.ethereum.request({method: "eth_requestAccounts"});
+              window.web3 = new Web3(window.ethereum);
+              const accounts = await window.web3.eth.getAccounts();
+              const account = accounts[0];
+              document.getElementById("account").innerHTML = "Your address is: " + account;
+              console.log(account);
+
+// Make a POST request to the Gitcoin Scorer API
+              fetch('https://api.scorer.gitcoin.co/registry/submit-passport', {
+                  method: 'POST',
+                  headers: {
+                      'Accept': 'application/json',
+                      'X-API-Key': 'api key',
+                      'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                      address: account,
+                      scorer_id: '5774'
+                  })
+              })
+                  .then(response => response.json())
+                  .then(data => {
+                      const addressScore = data.score;
+                      document.getElementById("score").innerHTML = "Your score is: " + addressScore;
+
+                      // Use getElementById and if statement to display the score status
+                      if (addressScore >= 20) {
+                          document.getElementById("scoreIndicator").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Score 20 or above';
+                      } else {
+                          document.getElementById("scoreIndicator").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Below 20';
+                      }
+
+                      console.log('Address Score:', addressScore);
+                  })
+                  .catch(error => {
+                      console.error('Error:', error);
+                  });
+
+          } else {
+              console.log("No wallet");
+          }
+      }
+  </script>
   <title>Data Dashboard</title>
 </head>
 <body>
@@ -271,10 +295,22 @@ var_dump($result);
 
     <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
       <div class="grid grid-cols-12 gap-5">
+        <div class="col-span-12">
+          <!-- Display a connect button and the current account -->
+          <input type="button"
+                 class="rounded-md bg-orange-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+                 value="Connect Wallet" onclick="connect();">
+          <div id="score">
+          </div>
+          <div id="account">
+
+          </div>
+
+        </div>
         <div class="col-span-4">
           <h2 class="text-2xl font-bold">Passport Score</h2>
           <ul class="list-none pt-3">
-            <li class="font-semibold"><i class="fa-duotone fa-check text-green-500"></i> Score 20 or above</li>
+            <li class="font-semibold" id="scoreIndicator"><i class="fa-duotone fa-check text-green-500"></i> Score 20 or above</li>
           </ul>
         </div>
         <div class="col-span-4">
