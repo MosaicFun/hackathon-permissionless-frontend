@@ -1,3 +1,8 @@
+<?php
+// get walletAddress from url
+$walletAddress = $_GET['walletAddress'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +15,16 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
   <script>
 
-      document.addEventListener("DOMContentLoaded", function() {
-          // This block of code will run after the page is fully loaded
-          document.getElementById("walletAddressForm").addEventListener("submit", function(event) {
-              event.preventDefault();
-              const walletAddress = document.getElementById("walletAddress").value;
-              console.log("Entered wallet address:", walletAddress);
-          });
-      });
+      // document.addEventListener("DOMContentLoaded", function() {
+      //     // This block of code will run after the page is fully loaded
+      //     document.getElementById("walletAddressForm").addEventListener("submit", function(event) {
+      //         event.preventDefault();
+      //         const walletAddress = document.getElementById("walletAddress").value;
+      //         console.log("Entered wallet address:", walletAddress);
+      //         // convert walletAddress into string
+      //
+      //     });
+      // });
 
 
       /* To connect using MetaMask */
@@ -58,16 +65,16 @@
 
                           // Add the button to the claimButtonContainer
                           document.getElementById("claimButtonContainer").innerHTML = `
-      <button id="claimButton"
-          class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-        Claim
-      </button>
-    `;
+                            <button id="claimButton"
+                                class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                              Claim
+                            </button>
+                          `;
 
                           // Add event listener to the button
                           document.getElementById("claimButton").addEventListener("click", function() {
                               // Perform GET request to your localhost URL
-                              fetch(`http://localhost:8080/mintnft?classSymbol=REGEN1&nftID=NFT0001&recipientAddress=${walletAddress}`)
+                              fetch(`http://localhost:8080/mintnft?classSymbol=REGEN1&nftID=NFT0001&recipientAddress=<?php echo $walletAddress ?>`)
                                   .then(response => response.json())
                                   .then(data => {
                                       // Handle the response data here
@@ -366,10 +373,7 @@
               src="img/regenscore-social-drop.png"
               alt="" class="w-full object-cover xl:rounded-3xl">
           <div class="text-center pt-2" id="claimButtonContainer">
-            <button
-                class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-              Not eligible
-            </button>
+            Connect your wallet to see if your eligible
           </div>
         </div>
         <div class="col px-2">
