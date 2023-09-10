@@ -1,7 +1,14 @@
 # Regenscore: Get NFT's (Permissionless II hackathon contribution) 
 Regenscore is a platform where regens can unlock airdrops for creating value. We do this by aggregating open data, measuring positive actions on a network, platform, or protocol, and create incentives for people who level up and unlock crypto rewards.
 
-We believe crypto should be a win win game where networks, platforms and protocols can grow and thrive while the people who perform positive actions can also flourish. We are inspired by projects like Gitcoin and authors like Kevin Owocki, and aim to help the ecosystem grow in alignment with the values of regen cryptoeconomics. 
+We believe crypto should be a win win game where all participants can grow and thrive. We are inspired by projects like Gitcoin and authors like Kevin Owocki, and aim to help the ecosystem grow in alignment with the values of regen cryptoeconomics. 
+
+Rewards are programmable. Incentives can be financial or social. The goal is to encourage regenerative actions that incentivize people to contribute to the ecosystem in meaningful ways, earning rewards along the way.
+
+The Regenscore alpha product uses Gitcoin Passport onchain data to calculate a person's regen score and unlocks rewards with increased claim criteria. Signing in with your crypto wallet calculates your regen score and shows you which airdrops you are eligible to claim, and the actions needed to unlock rewards for which you are not yet eligible.
+
+Future versions of Regenscore will make use of different reward types including soulbound tokens, and fungible tokens. 
+
 
 This application is made in the 24-hour [Permissionless II hackathon](https://blockworks.co/event/permissionless-2023-hackathon/home) and submitted to the following challenges:
 
