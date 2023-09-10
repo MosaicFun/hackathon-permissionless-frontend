@@ -1,5 +1,5 @@
 # Regenscore: Get NFT's (Permissionless II hackathon contribution) 
-Regenscore is a platform where you can measure your regen score and unlock airdrops for creating value. We do this by aggregating open data, measuring positive actions on a network, platform, or protocol, and create incentives for people who level up and unlock crypto rewards.
+Regenscore ([website](https://www.regenscore.xyz/)) is a platform where you can measure your regen score and unlock airdrops for creating value. We do this by aggregating open data, measuring positive actions on a network, platform, or protocol, and create incentives for people who level up and unlock crypto rewards.
 
 We believe crypto should be a win win game where all participants can grow and thrive. We are inspired by projects like Gitcoin and builders like Kevin Owocki, and aim to help the ecosystem grow in alignment with the values of regen cryptoeconomics. 
 
@@ -19,9 +19,6 @@ This application is made in the 24-hour [Permissionless II hackathon](https://bl
 - Scroll DEPLOY YOUR SMART CONTRACT ON SCROLL 
 
 A basic smart contract for a token has been deployed to Scroll (to fulfill another challange) at contract address [0x4b66f712019163e9f73974fe3f9764c88066d28a](https://sepolia.scrollscan.dev/address/0x4b66f712019163e9f73974fe3f9764c88066d28a#code)
-  
-# Gitcoin Passport dashboard data
-For the metrics on the homepage, we used the [Gitcoin Passport API](https://docs.passport.gitcoin.co/building-with-passport/api-reference#available-endpoints) in order to scrape score and stamp data from all addresses with an [Gitcoin Passport on-chain attestation](https://optimism.easscan.org/address/0x843829986e895facd330486a61Ebee9E1f1adB1a). Please note that this has a bias to more advanced used users (as they would benefit from on-chain stamps).
 
 # 1) Set up the web-app
 Copy all the files to a server with APACHE/NGINX running PHP.
@@ -39,3 +36,6 @@ Please note that `NFT0001` should be replaced with a counter and `TESTNET_ADDRES
 These smart tokens use the [token features](https://docs.coreum.dev/modules/assetnft.html#token-features) burning, freezing and disable sending.
 
 Example of these issuances and mints: [address testcore18zduv6tgq7z0l0g5q672sxx24av9e978d2aucc](https://explorer.testnet-1.coreum.dev/coreum/accounts/testcore18zduv6tgq7z0l0g5q672sxx24av9e978d2aucc)
+
+# Gitcoin Passport data
+For the metrics on the homepage, we used the [Gitcoin Passport API](https://docs.passport.gitcoin.co/building-with-passport/api-reference#available-endpoints) in order to scrape score and stamp data from all addresses with an [Gitcoin Passport on-chain attestation](https://optimism.easscan.org/address/0x843829986e895facd330486a61Ebee9E1f1adB1a). Please note that this has a bias to more advanced used users (as they would benefit from on-chain stamps).
