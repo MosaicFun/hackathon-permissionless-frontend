@@ -24,7 +24,7 @@ A basic smart contract for a token has been deployed to Scroll (to fulfill anoth
 Copy all the files to a server with APACHE/NGINX running PHP.
 
 # 2) Setting up Coreum
-1) Place a testnet mnemonic with funds in `main.go` on line 26, and run the Go application.
+1) Place a testnet mnemonic with funds in folder `coreum-nft-minter` file `main.go` on line 26, and run the Go application.
 
 2) Browse the following pages once to issue the NFT smart token classes:
 - [Issue NFT 1 class](http://localhost:8080/issueclass?classSymbol=REGEN1&className=Social%20Wizard&classDescription=Connected%20at%20least%20one%20social%20network%20account&royaltyRate=0.03)
