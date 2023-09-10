@@ -139,35 +139,39 @@
                           document.getElementById("twitterStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Twitter Status';
                       }
 
-                      // check GitcoinContributorStatistics#numGr14ContributionsGte#1
-                      if ('GitcoinContributorStatistics#numGr14ContributionsGte#1') {
-                          document.getElementById("gr14Status").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Contributed in GR14';
+                      // Check for the specific Gitcoin contributor statistic strings
+                      const hasGitcoinContribution = providers.includes("GitcoinContributorStatistics#numGr14ContributionsGte#1");
+                      const hasGitcoinGrantsContribution = providers.includes("GitcoinContributorStatistics#numGrantsContributeToGte#1");
+                      const hasGitcoinRoundsContribution = providers.includes("GitcoinContributorStatistics#numRoundsContributedToGte#1");
+                      const hasGitcoinTotalContributionAmount = providers.includes("GitcoinContributorStatistics#totalContributionAmountGte#10");
+
+// Update the gitcoinContributionStatus element
+                      if (hasGitcoinContribution) {
+                          document.getElementById("gitcoinContributionStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Gitcoin Contributions';
                       } else {
-                          document.getElementById("gr14Status").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Contributed in GR14';
+                          document.getElementById("gitcoinContributionStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Gitcoin Contributions';
                       }
 
-                      // check GitcoinContributorStatistics#numGrantsContributeToGte#1
-                      if ('GitcoinContributorStatistics#numGrantsContributeToGte#1') {
-                          document.getElementById("grantStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Contributed to at least 1 Grant';
+// Update the gitcoinGrantsContributionStatus element
+                      if (hasGitcoinGrantsContribution) {
+                          document.getElementById("gitcoinGrantsContributionStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Gitcoin Grants';
                       } else {
-                          document.getElementById("grantStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Contributed to at least 1 Grant';
+                          document.getElementById("gitcoinGrantsContributionStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Gitcoin Grants';
                       }
 
-                      // check GitcoinContributorStatistics#numGrantsContributeToGte#1
-                      if ('GitcoinContributorStatistics#numRoundsContributedToGte#1') {
-                          document.getElementById("roundsStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Contributed in at least 1 Round';
+// Update the gitcoinRoundsContributionStatus element
+                      if (hasGitcoinRoundsContribution) {
+                          document.getElementById("gitcoinRoundsContributionStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Gitcoin Rounds';
                       } else {
-                          document.getElementById("roundsStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Contributed in at least 1 Round';
+                          document.getElementById("gitcoinRoundsContributionStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Gitcoin Rounds';
                       }
 
-                      if ('GitcoinContributorStatistics#totalContributionAmountGte#10') {
-                          document.getElementById("amountStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Contributed at least $10';
+// Update the gitcoinTotalContributionAmountStatus element
+                      if (hasGitcoinTotalContributionAmount) {
+                          document.getElementById("gitcoinTotalContributionAmountStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Gitcoin Total Contribution';
                       } else {
-                          document.getElementById("amountStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Contributed at least $10';
+                          document.getElementById("gitcoinTotalContributionAmountStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Gitcoin Total Contribution';
                       }
-
-
-
 
                   } catch (error) {
                       console.error('Error:', error);
@@ -218,11 +222,11 @@
         <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
           <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
             <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl text-center">
-              <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Airdrops for people who creat value</h1>
-              <p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">Cupidatat minim id
-                magna ipsum sint dolor qui. Sunt sit in quis cupidatat mollit aute velit. Et labore commodo nulla aliqua
-                proident mollit ullamco exercitation tempor. Sint aliqua anim nulla sunt mollit id pariatur in voluptate
-                cillum. Eu voluptate tempor esse minim amet fugiat veniam occaecat aliqua.</p>
+              <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Airdrops for people who create
+                value</h1>
+              <p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">RegenScore is a
+                platform where regens can earn airdrops for creating value. We aggregate open data, measure regen
+                activity, and create incentives for people to level up and unlock crypto rewards.</p>
             </div>
             <div class="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
               <div
@@ -265,7 +269,6 @@
     </div>
 
 
-
     <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
       <div class="grid grid-cols-12 gap-5">
         <div class="col-span-12">
@@ -290,7 +293,7 @@
         </div>
         <div class="col-span-4">
           <h2 class="text-2xl font-bold">Social checklist</h2>
-          <span>Minimum amount 2</span>
+          <span>Minimum amount 1</span>
           <ul class="list-none pt-3">
             <li id="facebookStatus">Facebook</li>
             <li id="linkedinStatus">Linkedin</li>
@@ -301,12 +304,13 @@
         </div>
         <div class="col-span-4">
           <h2 class="text-2xl font-bold">Gitcoin Grants</h2>
-          <span>Minimum amount 2</span>
+          <span>Minimum amount 1</span>
           <ul class="list-none pt-3">
-            <li id="gr14Status">Contributed in GR14</li>
-            <li id="grantStatus">Contributed to at least 1 Grant</li>
-            <li id="roundsStatus">Contributed in at least 1 Round</li>
-            <li id="amountStatus">Contributed at least $10</li>
+            <li id="gitcoinContributionStatus">Gitcoin Contributions</li>
+            <li id="gitcoinGrantsContributionStatus">Gitcoin Grants</li>
+            <li id="gitcoinRoundsContributionStatus">Gitcoin Rounds</li>
+            <li id="gitcoinTotalContributionAmountStatus">Gitcoin Total Contribution</li>
+
           </ul>
         </div>
       </div>
@@ -344,7 +348,7 @@
           <div class="text-center pt-2">
             <button
                 class="rounded-md bg-gray-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-              Not elegible
+              Not eligible
             </button>
           </div>
         </div>
