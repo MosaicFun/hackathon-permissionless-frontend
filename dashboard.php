@@ -21,12 +21,12 @@
               document.getElementById("account").innerHTML = "Your address is: " + account;
               console.log(account);
 
-// Make a POST request to the Gitcoin Scorer API
+              // Make a POST request to the Gitcoin Scorer API
               fetch('https://api.scorer.gitcoin.co/registry/submit-passport', {
                   method: 'POST',
                   headers: {
                       'Accept': 'application/json',
-                      'X-API-Key': 'api key',
+                      'X-API-Key': 'TNEGHQEp.vsTwO4RyQrl24yzxMPst8qEoGDjKhMCU',
                       'Content-Type': 'application/json'
                   },
                   body: JSON.stringify({
@@ -51,6 +51,101 @@
                   .catch(error => {
                       console.error('Error:', error);
                   });
+
+              // get providers
+              // Fetch data from Gitcoin Scorer API
+              // Dynamic URL with the Ethereum address
+              async function connect() {
+                  // Initialize an empty array to hold providers
+                  let providers = [];
+
+                  try {
+                      await window.ethereum.request({method: "eth_requestAccounts"});
+                      window.web3 = new Web3(window.ethereum);
+                      const accounts = await window.web3.eth.getAccounts();
+                      const account = accounts[0]; // Ethereum address collected from wallet
+                      document.getElementById("account").innerHTML = "Your address is: " + account;
+
+                      // Dynamic URL with the Ethereum address
+                      const url = `https://api.scorer.gitcoin.co/registry/stamps/${account}?limit=1000&include_metadata=false`;
+
+                      const response = await fetch(url, {
+                          method: 'GET',
+                          headers: {
+                              'Accept': 'application/json',
+                              'X-API-Key': 'TNEGHQEp.vsTwO4RyQrl24yzxMPst8qEoGDjKhMCU'
+                          }
+                      });
+
+                      const data = await response.json();
+
+                      // Populate the providers array
+                      providers = data.items.map(item => item.credential.credentialSubject.provider);
+                      console.log(providers);
+                      // Check if 'providers' contains "Facebook"
+                      if (providers.includes("Facebook")) {
+                          document.getElementById("facebookStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Facebook';
+                      } else {
+                          document.getElementById("facebookStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Facebook';
+                      }
+
+                      if (providers.includes("Linkedin")) {
+                          document.getElementById("linkedinStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Linkedin';
+                      } else {
+                          document.getElementById("linkedinStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Linkedin';
+                      }
+
+                      if (providers.includes("Google")) {
+                          document.getElementById("googleStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Google';
+                      } else {
+                          document.getElementById("googleStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Google';
+                      }
+
+
+                      // Define the list of GitHub-related provider strings to check for
+                      const githubCheckList = [
+                          "githubContributionActivityGte#120",
+                          "githubContributionActivityGte#60",
+                          "githubContributionActivityGte#30",
+                          "githubAccountCreationGte#365",
+                          "githubAccountCreationGte#180",
+                          "githubAccountCreationGte#90"
+                      ];
+
+                      // Check if 'providers' contains any of the specified GitHub-related strings
+                      const hasGithubStatus = githubCheckList.some(item => providers.includes(item));
+
+                      // Update the githubStatus element based on the check result
+                      if (hasGithubStatus) {
+                          document.getElementById("githubStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> GitHub Status';
+                      } else {
+                          document.getElementById("githubStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> GitHub Status';
+                      }
+
+                      // Define the list of Twitter-related provider strings to check for
+                      const twitterCheckList = [
+                          "twitterAccountAgeGte#730",
+                          "twitterAccountAgeGte#365",
+                          "twitterAccountAgeGte#180"
+                      ];
+
+                      // Check if 'providers' contains any of the specified Twitter-related strings
+                      const hasTwitterStatus = twitterCheckList.some(item => providers.includes(item));
+
+                      // Update the twitterStatus element based on the check result
+                      if (hasTwitterStatus) {
+                          document.getElementById("twitterStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Twitter Status';
+                      } else {
+                          document.getElementById("twitterStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Twitter Status';
+                      }
+
+                  } catch (error) {
+                      console.error('Error:', error);
+                  }
+              }
+
+              // Execute the connect function
+              connect();
 
           } else {
               console.log("No wallet");
@@ -184,10 +279,11 @@
     </div>
 
 
-
     <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
       <div class="grid grid-cols-12 gap-5">
         <div class="col-span-12">
+          <h2 class="text-3xl font-bold pb-3">Connect your wallet to see if your eligible</h2>
+
           <!-- Display a connect button and the current account -->
           <input type="button"
                  class="rounded-md bg-orange-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
@@ -202,21 +298,23 @@
         <div class="col-span-4">
           <h2 class="text-2xl font-bold">Passport Score</h2>
           <ul class="list-none pt-3">
-            <li class="font-semibold" id="scoreIndicator">Score 20 or above</li>
+            <li class="" id="scoreIndicator">Score 20 or above</li>
           </ul>
         </div>
         <div class="col-span-4">
           <h2 class="text-2xl font-bold">Social checklist</h2>
-          <ul class="list-none pl-5 pt-3">
-            <li><i class="fa-duotone fa-check text-green-500"></i> Facebook</li>
-            <li><i class="fa-duotone fa-check text-green-500"></i> Linkedin</li>
-            <li><i class="fa-duotone fa-x text-red-500"></i> Github</li>
-            <li><i class="fa-duotone fa-check text-green-500"></i> Google</li>
-            <li><i class="fa-duotone fa-check text-green-500"></i> X</li>
+          <span>Minimum amount 2</span>
+          <ul class="list-none pt-3">
+            <li id="facebookStatus">Facebook</li>
+            <li id="linkedinStatus">Linkedin</li>
+            <li id="githubStatus">Github</li>
+            <li id="googleStatus">Google</li>
+            <li id="twitterStatus">Twitter</li>
           </ul>
         </div>
         <div class="col-span-4">
           <h2 class="text-2xl font-bold">Gitcoin Grants</h2>
+          <span>Minimum amount 2</span>
           <ul class="list-none pt-3">
             <li><i class="fa-duotone fa-x text-red-500"></i> Contributed in GR14</li>
             <li><i class="fa-duotone fa-x text-red-500"></i> Contributed to at least 1 Grant</li>
