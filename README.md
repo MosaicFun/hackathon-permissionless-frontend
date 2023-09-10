@@ -29,3 +29,9 @@ For the metrics on the homepage, we used the [Gitcoin Passport API](https://docs
 - [Issue NFT 1 class](http://localhost:8080/issueclass?classSymbol=REGEN1&className=Social%20Wizard&classDescription=Connected%20at%20least%20one%20social%20network%20account&royaltyRate=0.03)
 - [Issue NFT 2 class](http://localhost:8080/issueclass?classSymbol=REGEN2&className=Stamp%20Collector&classDescription=Connected%20accounts%20to%20score%2020%20or%20above&royaltyRate=0.03)
 - [Issue NFT 3 class](http://localhost:8080/issueclass?classSymbol=REGEN3&className=Public%20Goods%20Fren&classDescription=Funded%20public%20goods%20in%20Gitcoin%20Grants&royaltyRate=0.03)
+
+The application will mint the NFT smart tokens through an API: `http://localhost:8080/mintnft?classSymbol=REGEN1&nftID=NFT0001&recipientAddress=TESTNET_ADDRESS`.
+Please note that `NFT0001` should be replaced with a counter and `TESTNET_ADDRESS` with the recipient address.
+These smart tokens use the [token features](https://docs.coreum.dev/modules/assetnft.html#token-features) burning, freezing and disable sending.
+
+Example of these issuances and mints: [address testcore18zduv6tgq7z0l0g5q672sxx24av9e978d2aucc](https://explorer.testnet-1.coreum.dev/coreum/accounts/testcore18zduv6tgq7z0l0g5q672sxx24av9e978d2aucc)
