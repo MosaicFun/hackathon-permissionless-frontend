@@ -365,7 +365,7 @@ $walletAddress = $_GET['walletAddress'];
 
     <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
       <div class="grid grid-cols-12 gap-5">
-        <div class="col-span-12">
+        <div class="col-span-12 text-black">
           <form id="walletAddressForm">
             <label for="walletAddress">Enter Coreum your wallet address:</label>
             <input type="text" id="walletAddress" name="walletAddress" class="border"
@@ -420,7 +420,7 @@ $walletAddress = $_GET['walletAddress'];
     </div>
 
     <!-- Image section -->
-    <div class="pt-10 xl:mx-auto xl:max-w-7xl xl:px-8">
+    <div class="pt-10 xl:mx-auto xl:max-w-7xl xl:px-8 ">
       <div class="grid grid-cols-3  gap-5">
         <div class="col px-2">
           <img
@@ -455,7 +455,7 @@ $walletAddress = $_GET['walletAddress'];
 
 
     <div class="text-center">
-      <h2 class="text-3xl font-bold py-5">Passport stamps data analysis </h2>
+      <h2 class="text-5xl font-bold pb-8 pt-24 text-black">Passport stamps data analysis </h2>
       <img class="mx-auto" src="img/img.png">
     </div>
 
