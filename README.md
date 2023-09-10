@@ -24,7 +24,7 @@ A basic smart contract for a token has been deployed to Scroll (to fulfill anoth
 For the metrics on the homepage, we used the [Gitcoin Passport API](https://docs.passport.gitcoin.co/building-with-passport/api-reference#available-endpoints) in order to scrape score and stamp data from all addresses with an [Gitcoin Passport on-chain attestation](https://optimism.easscan.org/address/0x843829986e895facd330486a61Ebee9E1f1adB1a). Please note that this has a bias to more advanced used users (as they would benefit from on-chain stamps).
 
 # 1) Set up the web-app
-Copy all the files to a server with APACHE/NGNIX running PHP.
+Copy all the files to a server with APACHE/NGINX running PHP.
 
 # 2) Setting up Coreum
 1) Place a testnet mnemonic with funds in `main.go` on line 26, and run the Go application.
