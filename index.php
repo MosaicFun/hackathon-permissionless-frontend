@@ -452,6 +452,13 @@ $walletAddress = $_GET['walletAddress'];
       </div>
     </div>
 
+
+
+    <div class="text-center">
+      <h2 class="text-3xl font-bold py-5">Passport stamps data analysis </h2>
+      <img class="mx-auto" src="img/img.png">
+    </div>
+
     <footer class="py-5">
       <p class="mt-10 text-center text-xs leading-5 text-gray-500">&copy; 2023
         reserved.</p>
