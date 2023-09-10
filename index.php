@@ -40,7 +40,6 @@ $walletAddress = $_GET['walletAddress'];
               console.log(account);
 
 
-
               // Make a POST request to the Gitcoin Scorer API
               fetch('https://api.scorer.gitcoin.co/registry/submit-passport', {
                   method: 'POST',
@@ -71,8 +70,13 @@ $walletAddress = $_GET['walletAddress'];
                             </button>
                           `;
 
+                          document.getElementById("claimButton").addEventListener("click", function () {
+                              // Show "Thank you for minting" message
+                              alert("Thank you for minting");
+                          });
+
                           // Add event listener to the button
-                          document.getElementById("claimButton").addEventListener("click", function() {
+                          document.getElementById("claimButton").addEventListener("click", function () {
                               // Perform GET request to your localhost URL
                               fetch(`http://localhost:8080/mintnft?classSymbol=REGEN1&nftID=NFT0001&recipientAddress=<?php echo $walletAddress ?>`)
                                   .then(response => response.json())
@@ -128,18 +132,24 @@ $walletAddress = $_GET['walletAddress'];
                       console.log(providers);
                       // Check if 'providers' contains "Facebook"
                       if (providers.includes("Facebook")) {
+                          const socialScore = true;
+
                           document.getElementById("facebookStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Facebook';
                       } else {
                           document.getElementById("facebookStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Facebook';
                       }
 
                       if (providers.includes("Linkedin")) {
+                          const socialScore = true;
+
                           document.getElementById("linkedinStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Linkedin';
                       } else {
                           document.getElementById("linkedinStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Linkedin';
                       }
 
                       if (providers.includes("Google")) {
+                          const socialScore = true;
+
                           document.getElementById("googleStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Google';
                       } else {
                           document.getElementById("googleStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Google';
@@ -161,6 +171,8 @@ $walletAddress = $_GET['walletAddress'];
 
                       // Update the githubStatus element based on the check result
                       if (hasGithubStatus) {
+                          const socialScore = true;
+
                           document.getElementById("githubStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> GitHub Status';
                       } else {
                           document.getElementById("githubStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> GitHub Status';
@@ -178,10 +190,48 @@ $walletAddress = $_GET['walletAddress'];
 
                       // Update the twitterStatus element based on the check result
                       if (hasTwitterStatus) {
+                          const socialScore = true;
+                          if (socialScore === true) {
+                              // Show a new claim button in a container with the ID claimButtonContainer2
+                              document.getElementById("claimButtonContainer2").innerHTML = `
+    <button id="newClaimButton"
+      class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+      Claim
+    </button>
+  `;
+
+                              // Add an event listener to the new button
+                              document.getElementById("newClaimButton").addEventListener("click", function () {
+                                  // Your code to handle the new claim button click, e.g., minting the NFT
+                                  // ...
+
+                                  // Optionally show a "Thank you for minting" message
+                                  alert("Thank you for the new claim.");
+                              });
+                          } else {
+                              // Show a "Not Eligible" button in a container with the ID claimButtonContainer2
+                              document.getElementById("claimButtonContainer2").innerHTML = `
+    <button id="notEligibleButton"
+      class="rounded-md bg-gray-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm">
+      Not Eligible
+    </button>
+  `;
+
+                              // Add an event listener to the "Not Eligible" button
+                              document.getElementById("notEligibleButton").addEventListener("click", function () {
+                                  // Your code to handle the "Not Eligible" button click
+                                  // ...
+
+                                  // Optionally show a message
+                                  alert("You are not eligible for the new claim.");
+                              });
+                          }
                           document.getElementById("twitterStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Twitter Status';
                       } else {
                           document.getElementById("twitterStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Twitter Status';
                       }
+
+
 
                       // Check for the specific Gitcoin contributor statistic strings
                       const hasGitcoinContribution = providers.includes("GitcoinContributorStatistics#numGr14ContributionsGte#1");
@@ -316,6 +366,14 @@ $walletAddress = $_GET['walletAddress'];
     <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
       <div class="grid grid-cols-12 gap-5">
         <div class="col-span-12">
+          <form id="walletAddressForm">
+            <label for="walletAddress">Enter Coreum your wallet address:</label>
+            <input type="text" id="walletAddress" name="walletAddress" class="border"
+                   value="<?php echo $walletAddress; ?>" required>
+            <input
+                class="rounded-md bg-gray-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                type="submit" value="Submit">
+          </form>
           <h2 class="text-3xl font-bold pb-3">Connect your wallet to see if your eligible</h2>
 
           <!-- Display a connect button and the current account -->
@@ -327,11 +385,7 @@ $walletAddress = $_GET['walletAddress'];
           <div id="account">
 
           </div>
-          <form id="walletAddressForm">
-            <label for="walletAddress">Enter Coreum your wallet address:</label>
-            <input type="text" id="walletAddress" name="walletAddress" class="border" required>
-            <input class="rounded-md bg-gray-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" type="submit" value="Submit">
-          </form>
+
 
         </div>
         <div class="col-span-4">
@@ -380,11 +434,8 @@ $walletAddress = $_GET['walletAddress'];
           <img
               src="img/regenscore-stamp-drop.png"
               alt="" class="w-full object-cover xl:rounded-3xl">
-          <div class="text-center pt-2" >
-            <button
-                class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-              Claim
-            </button>
+          <div class="text-center pt-2" id="claimButtonContainer2">
+            Connect your wallet to see if your eligible
           </div>
         </div>
         <div class="col px-2">
