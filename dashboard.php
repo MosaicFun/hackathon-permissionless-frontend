@@ -1,6 +1,31 @@
+<?php
+
+$address = $_GET["address"];
+if ($address == "") {
+  // do nothing
+} else {
+  $ch = curl_init();
+
+  curl_setopt($ch, CURLOPT_URL, $_ENV["https://api.scorer.gitcoin.co/registry/score/5773/" . $address]);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+
+
+  $headers = array();
+  $headers[] = 'X-Api-Key: iMUd2T0l.CmMKg7Wi5Lely7XCk3vrMAMuSTkVwEli';
+  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+  $result = curl_exec($ch);
+  if (curl_errno($ch)) {
+    echo 'Error:' . curl_error($ch);
+  }
+  curl_close($ch);
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
   <meta charset="UTF-8">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -136,7 +161,77 @@
       <div class="grid grid-cols-12 gap-5">
         <div class="col-span-4">
           <div class="chart">
-            
+
+            <canvas id="social"></canvas>
+            <script>
+                const social = document.getElementById('social');
+
+                new Chart(social, {
+                    type: 'pie',
+                    data:
+                        {
+                            labels: ['Facebook', 'Linkedin', 'Github', 'Google', 'X'],
+                            datasets: [
+                                {
+                                    label: 'Dataset 1',
+                                    data: [400, 200, 300, 124, 534],
+                                }
+                            ]
+                        },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: ''
+                            }
+                        }
+                    },
+                });
+            </script>
+          </div>
+        </div>
+        <div class="col-span-4">
+          <div class="chart">
+
+            <canvas id="grants"></canvas>
+            <script>
+                const grants = document.getElementById('grants');
+
+                new Chart(grants, {
+                    type: 'pie',
+                    data:
+                        {
+                            labels: ['Facebook', 'Linkedin', 'Github', 'Google', 'X'],
+                            datasets: [
+                                {
+                                    label: 'Dataset 1',
+                                    data: [400, 200, 300, 124, 534],
+                                }
+                            ]
+                        },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: ''
+                            }
+                        }
+                    },
+                });
+            </script>
+          </div>
+        </div>
+        <div class="col-span-4">
+          <div class="chart">
+
             <canvas id="myChart"></canvas>
             <script>
                 const ctx = document.getElementById('myChart');
@@ -149,8 +244,7 @@
                             datasets: [
                                 {
                                     label: 'Dataset 1',
-                                    data: [1, 2, 3, 4, 5],
-                                    //backgroundColor: ['#ff0000', '#ff8000', '#ffff00', '#00ff00', '#0000ff']
+                                    data: [400, 200, 300, 124, 534],
                                 }
                             ]
                         },
