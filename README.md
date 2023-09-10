@@ -12,15 +12,17 @@ Future versions of Regenscore will make use of different reward types including 
 
 This application is made in the 24-hour [Permissionless II hackathon](https://blockworks.co/event/permissionless-2023-hackathon/home) and submitted to the following challenges:
 
--
--
+- Gitcoin BEST USE OF ONCHAIN PASSPORTS
+- Coreum SMART TOKEN USAGE IN A DECENTRALIZED APPLICATION
+- Scroll DEPLOY YOUR SMART CONTRACT ON SCROLL 
 
+A basic smart contract for a token has been deployed to Scroll (to fulfill another challange) at contract address [0x4b66f712019163e9f73974fe3f9764c88066d28a](https://sepolia.scrollscan.dev/address/0x4b66f712019163e9f73974fe3f9764c88066d28a#code)
   
 # Gitcoin Passport dashboard data
 For the metrics on the homepage, we used the [Gitcoin Passport API](https://docs.passport.gitcoin.co/building-with-passport/api-reference#available-endpoints) in order to scrape score and stamp data from all addresses with an [Gitcoin Passport on-chain attestation](https://optimism.easscan.org/address/0x843829986e895facd330486a61Ebee9E1f1adB1a). Please note that this has a bias to more advanced used users (as they would benefit from on-chain stamps).
 
-# 1) Setting up the web-app
-
+# 1) Set up the web-app
+Copy all the files to a server with APACHE/NGNIX running PHP.
 
 # 2) Setting up Coreum
 1) Place a testnet mnemonic with funds in `main.go` on line 26, and run the Go application.
