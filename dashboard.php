@@ -36,7 +36,7 @@
               })
                   .then(response => response.json())
                   .then(data => {
-                      const addressScore = data.score;
+                      const addressScore = data.score !== undefined ? data.score : 0;
                       document.getElementById("score").innerHTML = "Your score is: " + addressScore;
 
                       // Use getElementById and if statement to display the score status
@@ -183,115 +183,7 @@
       </div>
     </div>
 
-    <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
-      <div class="grid grid-cols-12 gap-5">
-        <div class="col-span-4">
-          <div class="chart">
 
-            <canvas id="social"></canvas>
-            <script>
-                const social = document.getElementById('social');
-
-                new Chart(social, {
-                    type: 'pie',
-                    data:
-                        {
-                            labels: ['Facebook', 'Linkedin', 'Github', 'Google', 'X'],
-                            datasets: [
-                                {
-                                    label: 'Dataset 1',
-                                    data: [400, 200, 300, 124, 534],
-                                }
-                            ]
-                        },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            title: {
-                                display: true,
-                                text: ''
-                            }
-                        }
-                    },
-                });
-            </script>
-          </div>
-        </div>
-        <div class="col-span-4">
-          <div class="chart">
-
-            <canvas id="grants"></canvas>
-            <script>
-                const grants = document.getElementById('grants');
-
-                new Chart(grants, {
-                    type: 'pie',
-                    data:
-                        {
-                            labels: ['Facebook', 'Linkedin', 'Github', 'Google', 'X'],
-                            datasets: [
-                                {
-                                    label: 'Dataset 1',
-                                    data: [400, 200, 300, 124, 534],
-                                }
-                            ]
-                        },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            title: {
-                                display: true,
-                                text: ''
-                            }
-                        }
-                    },
-                });
-            </script>
-          </div>
-        </div>
-        <div class="col-span-4">
-          <div class="chart">
-
-            <canvas id="myChart"></canvas>
-            <script>
-                const ctx = document.getElementById('myChart');
-
-                new Chart(ctx, {
-                    type: 'pie',
-                    data:
-                        {
-                            labels: ['Facebook', 'Linkedin', 'Github', 'Google', 'X'],
-                            datasets: [
-                                {
-                                    label: 'Dataset 1',
-                                    data: [400, 200, 300, 124, 534],
-                                }
-                            ]
-                        },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            title: {
-                                display: true,
-                                text: ''
-                            }
-                        }
-                    },
-                });
-            </script>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
       <div class="grid grid-cols-12 gap-5">
@@ -300,7 +192,7 @@
           <input type="button"
                  class="rounded-md bg-orange-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
                  value="Connect Wallet" onclick="connect();">
-          <div id="score">
+          <div id="score" class="pt-3">
           </div>
           <div id="account">
 
