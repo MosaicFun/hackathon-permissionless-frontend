@@ -39,3 +39,4 @@ Example of these issuances and mints: [address testcore18zduv6tgq7z0l0g5q672sxx2
 
 # Gitcoin Passport data
 For the metrics on the homepage, we used the [Gitcoin Passport API](https://docs.passport.gitcoin.co/building-with-passport/api-reference#available-endpoints) in order to scrape score and stamp data from all addresses with an [Gitcoin Passport on-chain attestation](https://optimism.easscan.org/address/0x843829986e895facd330486a61Ebee9E1f1adB1a). Please note that this has a bias to more advanced used users (as they would benefit from on-chain stamps).
+Additional data is sourced from [supermodularxyz' grants-etl](https://github.com/supermodularxyz/grants-etl/tree/main)
