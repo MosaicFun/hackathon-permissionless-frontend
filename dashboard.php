@@ -199,7 +199,7 @@
                   class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                 <div class="relative">
                   <img
-                      src="img/buildspaces4w2_.png"
+                      src="img/regenscore-funding-drop.png"
                       alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
@@ -207,13 +207,13 @@
               <div class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                 <div class="relative">
                   <img
-                      src="img/buildspaces4w2_.png"
+                      src="img/regenscore-social-drop.png"
                       alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
                 <div class="relative">
                   <img
-                      src="img/buildspaces4w2_.png"
+                      src="img/regenscore-stamp-drop.png"
                       alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
@@ -221,13 +221,13 @@
               <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                 <div class="relative">
                   <img
-                      src="img/buildspaces4w2_.png"
+                      src="img/regenscore-stamp-drop.png"
                       alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
                 <div class="relative">
                   <img
-                      src="img/buildspaces4w2_.png"
+                      src="img/regenscore-social-drop.png"
                       alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
@@ -316,10 +316,10 @@
           <h2 class="text-2xl font-bold">Gitcoin Grants</h2>
           <span>Minimum amount 2</span>
           <ul class="list-none pt-3">
-            <li><i class="fa-duotone fa-x text-red-500"></i> Contributed in GR14</li>
-            <li><i class="fa-duotone fa-x text-red-500"></i> Contributed to at least 1 Grant</li>
-            <li><i class="fa-duotone fa-x text-red-500"></i> Contributed in at least 1 Round</li>
-            <li><i class="fa-duotone fa-x text-red-500"></i> Contributed at least $10</li>
+            <li>Contributed in GR14</li>
+            <li>Contributed to at least 1 Grant</li>
+            <li>Contributed in at least 1 Round</li>
+            <li>Contributed at least $10</li>
           </ul>
         </div>
       </div>
@@ -330,8 +330,8 @@
       <div class="grid grid-cols-3  gap-5">
         <div class="col px-2">
           <img
-              src="img/buildspaces4w2_.png"
-              alt="" class="aspect-[5/5] w-full object-cover xl:rounded-3xl">
+              src="img/regenscore-social-drop.png"
+              alt="" class="w-full object-cover xl:rounded-3xl">
           <div class="text-center pt-2">
             <button
                 class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
@@ -341,8 +341,8 @@
         </div>
         <div class="col px-2">
           <img
-              src="img/buildspaces4w2_.png"
-              alt="" class="aspect-[5/5] w-full object-cover xl:rounded-3xl">
+              src="img/regenscore-stamp-drop.png"
+              alt="" class="w-full object-cover xl:rounded-3xl">
           <div class="text-center pt-2">
             <button
                 class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
@@ -352,8 +352,8 @@
         </div>
         <div class="col px-2">
           <img
-              src="img/buildspaces4w2_.png"
-              alt="" class="aspect-[5/5] w-full object-cover xl:rounded-3xl">
+              src="img/regenscore-funding-drop.png"
+              alt="" class="w-full object-cover xl:rounded-3xl">
           <div class="text-center pt-2">
             <button
                 class="rounded-md bg-gray-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
