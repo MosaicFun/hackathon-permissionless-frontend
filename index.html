@@ -9,6 +9,24 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.4-rc.1/web3.min.js"></script>
   <script>
+
+      // Add an event listener to the form
+      document.getElementById("walletAddressForm").addEventListener("submit", function(event) {
+          // Prevent default form submission
+          event.preventDefault();
+
+          // Get the value of the wallet address input
+          const walletAddress = document.getElementById("walletAddress").value;
+
+          // Do something with the wallet address (e.g., validate, display it, or send it to an API)
+          console.log("Entered wallet address: ", walletAddress);
+
+          // Here you can call any function to handle the entered wallet address
+          // For example, fetch data from an API
+          // fetchData(walletAddress);
+      });
+
+
       /* To connect using MetaMask */
       async function connect() {
           if (window.ethereum) {
@@ -56,7 +74,7 @@
                           // Add event listener to the button
                           document.getElementById("claimButton").addEventListener("click", function() {
                               // Perform GET request to your localhost URL
-                              fetch(`http://localhost:8080/mintnft?classSymbol=REGEN1&nftID=NFT0001&recipientAddress=${account}`)
+                              fetch(`http://localhost:8080/mintnft?classSymbol=REGEN1&nftID=NFT0001&recipientAddress=${walletAddress}`)
                                   .then(response => response.json())
                                   .then(data => {
                                       // Handle the response data here
@@ -309,6 +327,11 @@
           <div id="account">
 
           </div>
+          <form id="walletAddressForm">
+            <label for="walletAddress">Enter Coreum your wallet address:</label>
+            <input type="text" id="walletAddress" name="walletAddress" required>
+            <input type="submit" value="Submit">
+          </form>
 
         </div>
         <div class="col-span-4">
