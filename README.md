@@ -1,4 +1,4 @@
-# Regenscore: Get NFT's (Permissionless II hackathon contribution) 
+# Regenscore: Get NFT's based on Passport score (Permissionless II hackathon contribution) 
 Regenscore ([website](https://www.regenscore.xyz/)) is a platform where you can measure your regen score and unlock airdrops for creating value. We do this by aggregating open data, measuring positive actions on a network, platform, or protocol, and create incentives for people who level up and unlock crypto rewards.
 
 We believe crypto should be a win win game where all participants can grow and thrive. We are inspired by projects like Gitcoin and builders like Kevin Owocki, and aim to help the ecosystem grow in alignment with the values of regen cryptoeconomics. 
