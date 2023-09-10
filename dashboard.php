@@ -1,26 +1,28 @@
 <?php
-
-$address = $_GET["address"];
-if ($address == "") {
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+//$address = $_GET["address"];
+//if ($address == "") {
   // do nothing
-} else {
-  $ch = curl_init();
+//} else {
+$ch = curl_init();
 
-  curl_setopt($ch, CURLOPT_URL, $_ENV["https://api.scorer.gitcoin.co/registry/score/5773/" . $address]);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+curl_setopt($ch, CURLOPT_URL, 'https://api.scorer.gitcoin.co/registry/score/5773/0x6e997A5Fb4D8Aa8f8E60b0C2e13670aDe55d4283');
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 
 
-  $headers = array();
-  $headers[] = 'X-Api-Key: iMUd2T0l.CmMKg7Wi5Lely7XCk3vrMAMuSTkVwEli';
-  curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+$headers = array();
+$headers[] = 'X-Api-Key: iMUd2T0l.CmMKg7Wi5Lely7XCk3vrMAMuSTkVwEli';
+curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-  $result = curl_exec($ch);
-  if (curl_errno($ch)) {
-    echo 'Error:' . curl_error($ch);
-  }
-  curl_close($ch);
+$result = curl_exec($ch);
+if (curl_errno($ch)) {
+  echo 'Error:' . curl_error($ch);
 }
+curl_close($ch);
+//}
+var_dump($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +30,7 @@ if ($address == "") {
 
   <meta charset="UTF-8">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+  <script src="https://kit.fontawesome.com/77adf10444.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Data Dashboard</title>
@@ -267,9 +269,39 @@ if ($address == "") {
       </div>
     </div>
 
-    <!-- Image section -->
     <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
-      <div class="grid grid-cols-3 w-3/4 gap-5">
+      <div class="grid grid-cols-12 gap-5">
+        <div class="col-span-4">
+          <h2 class="text-2xl font-bold">Passport Score</h2>
+          <ul class="list-none pt-3">
+            <li class="font-semibold"><i class="fa-duotone fa-check text-green-500"></i> Score 20 or above</li>
+          </ul>
+        </div>
+        <div class="col-span-4">
+          <h2 class="text-2xl font-bold">Social checklist</h2>
+          <ul class="list-none pl-5 pt-3">
+            <li><i class="fa-duotone fa-check text-green-500"></i> Facebook</li>
+            <li><i class="fa-duotone fa-check text-green-500"></i> Linkedin</li>
+            <li><i class="fa-duotone fa-x text-red-500"></i> Github</li>
+            <li><i class="fa-duotone fa-check text-green-500"></i> Google</li>
+            <li><i class="fa-duotone fa-check text-green-500"></i> X</li>
+          </ul>
+        </div>
+        <div class="col-span-4">
+          <h2 class="text-2xl font-bold">Gitcoin Grants</h2>
+          <ul class="list-none pt-3">
+            <li><i class="fa-duotone fa-x text-red-500"></i> Contributed in GR14</li>
+            <li><i class="fa-duotone fa-x text-red-500"></i> Contributed to at least 1 Grant</li>
+            <li><i class="fa-duotone fa-x text-red-500"></i> Contributed in at least 1 Round</li>
+            <li><i class="fa-duotone fa-x text-red-500"></i> Contributed at least $10</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image section -->
+    <div class="pt-10 xl:mx-auto xl:max-w-7xl xl:px-8">
+      <div class="grid grid-cols-3  gap-5">
         <div class="col px-2">
           <img
               src="img/buildspaces4w2_.png"
@@ -298,8 +330,8 @@ if ($address == "") {
               alt="" class="aspect-[5/5] w-full object-cover xl:rounded-3xl">
           <div class="text-center pt-2">
             <button
-                class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-              Claim
+                class="rounded-md bg-gray-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              Not elegible
             </button>
           </div>
         </div>
