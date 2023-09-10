@@ -7,6 +7,8 @@ Rewards are programmable. Incentives can be financial or social. The goal is to 
 
 The Regenscore alpha product uses Gitcoin Passport onchain data to calculate a person's regen score and unlocks rewards with a variety of criteria requirements. Signing in with your crypto wallet calculates your regen score and shows you which airdrops you are eligible to claim, and the actions needed to unlock the rewards for which you are not yet eligible.
 
+We have deployed our rewards contract on Scroll, added support for Coreum smart tokens, as well as natively issuing rewards on Optimism, showing the power of interoperable and dynamic rewards.
+
 Future versions of Regenscore will make use of different reward types including soulbound tokens, and fungible tokens. All to further align crypto economic incentives between valuable web3 products and the people who use them.
 
 
