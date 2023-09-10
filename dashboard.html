@@ -3,14 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100"></script>
+
   <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css"/>
   <script src="https://cdn.tailwindcss.com"></script>
   <title>Data Dashboard</title>
@@ -139,9 +132,50 @@
       </div>
     </div>
 
+    <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
+      <div class="grid grid-cols-12 gap-5">
+        <div class="col-span-4">
+          <div class="chart">
+            
+            <canvas id="myChart"></canvas>
+            <script>
+                const ctx = document.getElementById('myChart');
+
+                new Chart(ctx, {
+                    type: 'pie',
+                    data:
+                        {
+                            labels: ['Facebook', 'Linkedin', 'Github', 'Google', 'X'],
+                            datasets: [
+                                {
+                                    label: 'Dataset 1',
+                                    data: [1, 2, 3, 4, 5],
+                                    //backgroundColor: ['#ff0000', '#ff8000', '#ffff00', '#00ff00', '#0000ff']
+                                }
+                            ]
+                        },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: ''
+                            }
+                        }
+                    },
+                });
+            </script>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Image section -->
     <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
-      <div class="grid grid-cols-3 w-3/4">
+      <div class="grid grid-cols-3 w-3/4 gap-5">
         <div class="col px-2">
           <img
               src="img/buildspaces4w2_.png"
@@ -184,7 +218,6 @@
     </footer>
   </main>
 </div>
-
 
 
 </body>
