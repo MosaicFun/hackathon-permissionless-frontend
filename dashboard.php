@@ -139,6 +139,36 @@
                           document.getElementById("twitterStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Twitter Status';
                       }
 
+                      // check GitcoinContributorStatistics#numGr14ContributionsGte#1
+                      if ('GitcoinContributorStatistics#numGr14ContributionsGte#1') {
+                          document.getElementById("gr14Status").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Contributed in GR14';
+                      } else {
+                          document.getElementById("gr14Status").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Contributed in GR14';
+                      }
+
+                      // check GitcoinContributorStatistics#numGrantsContributeToGte#1
+                      if ('GitcoinContributorStatistics#numGrantsContributeToGte#1') {
+                          document.getElementById("grantStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Contributed to at least 1 Grant';
+                      } else {
+                          document.getElementById("grantStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Contributed to at least 1 Grant';
+                      }
+
+                      // check GitcoinContributorStatistics#numGrantsContributeToGte#1
+                      if ('GitcoinContributorStatistics#numRoundsContributedToGte#1') {
+                          document.getElementById("roundsStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Contributed in at least 1 Round';
+                      } else {
+                          document.getElementById("roundsStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Contributed in at least 1 Round';
+                      }
+
+                      if ('GitcoinContributorStatistics#totalContributionAmountGte#10') {
+                          document.getElementById("amountStatus").innerHTML = '<i class="fa-duotone fa-check text-green-500"></i> Contributed at least $10';
+                      } else {
+                          document.getElementById("amountStatus").innerHTML = '<i class="fa-duotone fa-x text-red-500"></i> Contributed at least $10';
+                      }
+
+
+
+
                   } catch (error) {
                       console.error('Error:', error);
                   }
@@ -187,8 +217,8 @@
       <div class="overflow-hidden">
         <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
           <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-            <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl">
-              <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Wire some amazing text here.</h1>
+            <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl text-center">
+              <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Airdrops for people who creat value</h1>
               <p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">Cupidatat minim id
                 magna ipsum sint dolor qui. Sunt sit in quis cupidatat mollit aute velit. Et labore commodo nulla aliqua
                 proident mollit ullamco exercitation tempor. Sint aliqua anim nulla sunt mollit id pariatur in voluptate
@@ -198,17 +228,13 @@
               <div
                   class="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-none xl:pt-80">
                 <div class="relative">
-                  <img
-                      src="img/regenscore-funding-drop.png"
-                      alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
+
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
               </div>
               <div class="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
                 <div class="relative">
-                  <img
-                      src="img/regenscore-social-drop.png"
-                      alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
+
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
                 <div class="relative">
@@ -221,13 +247,13 @@
               <div class="w-44 flex-none space-y-8 pt-32 sm:pt-0">
                 <div class="relative">
                   <img
-                      src="img/regenscore-stamp-drop.png"
+                      src="img/regenscore-social-drop.png"
                       alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
                 <div class="relative">
                   <img
-                      src="img/regenscore-social-drop.png"
+                      src="img/regenscore-funding-drop.png"
                       alt="" class="aspect-[2/3] w-full rounded-xl bg-gray-900/5 object-cover shadow-lg">
                   <div class="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-inset ring-gray-900/10"></div>
                 </div>
@@ -238,45 +264,6 @@
       </div>
     </div>
 
-    <!-- Content section -->
-    <div class="mx-auto -mt-12 max-w-7xl px-6 sm:mt-0 lg:px-8 xl:-mt-8">
-      <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Describe the qualifications for the
-          airdrop</h2>
-        <div class="mt-6 flex flex-col gap-x-8 gap-y-20 lg:flex-row">
-          <div class="lg:w-full lg:max-w-2xl lg:flex-auto">
-            <p class="text-xl leading-8 text-gray-600">Aliquet nec orci mattis amet quisque ullamcorper neque, nibh sem.
-              At arcu, sit dui mi, nibh dui, diam eget aliquam. Quisque id at vitae feugiat egestas ac. Diam nulla orci
-              at in viverra scelerisque eget. Eleifend egestas fringilla sapien.</p>
-            <div class="mt-10 max-w-xl text-base leading-7 text-gray-700">
-              <p>Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris semper sed amet
-                vitae sed turpis id. Id dolor praesent donec est. Odio penatibus risus viverra tellus varius sit neque
-                erat velit. Faucibus commodo massa rhoncus, volutpat. Dignissim sed eget risus enim. Mattis mauris
-                semper sed amet vitae sed turpis id.</p>
-              <p class="mt-10">Et vitae blandit facilisi magna lacus commodo. Vitae sapien duis odio id et. Id blandit
-                molestie auctor fermentum dignissim. Lacus diam tincidunt ac cursus in vel. Mauris varius vulputate et
-                ultrices hac adipiscing egestas. Iaculis convallis ac tempor et ut. Ac lorem vel integer orci.</p>
-            </div>
-          </div>
-          <div class="lg:flex lg:flex-auto lg:justify-center">
-            <dl class="w-64 space-y-8 xl:w-80">
-              <div class="flex flex-col-reverse gap-y-4">
-                <dt class="text-base leading-7 text-gray-600">Something</dt>
-                <dd class="text-5xl font-semibold tracking-tight text-gray-900">44 big number</dd>
-              </div>
-              <div class="flex flex-col-reverse gap-y-4">
-                <dt class="text-base leading-7 text-gray-600">Total user with score</dt>
-                <dd class="text-5xl font-semibold tracking-tight text-gray-900">8200</dd>
-              </div>
-              <div class="flex flex-col-reverse gap-y-4">
-                <dt class="text-base leading-7 text-gray-600">Total users required score</dt>
-                <dd class="text-5xl font-semibold tracking-tight text-gray-900">6000</dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
     <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
@@ -316,10 +303,10 @@
           <h2 class="text-2xl font-bold">Gitcoin Grants</h2>
           <span>Minimum amount 2</span>
           <ul class="list-none pt-3">
-            <li>Contributed in GR14</li>
-            <li>Contributed to at least 1 Grant</li>
-            <li>Contributed in at least 1 Round</li>
-            <li>Contributed at least $10</li>
+            <li id="gr14Status">Contributed in GR14</li>
+            <li id="grantStatus">Contributed to at least 1 Grant</li>
+            <li id="roundsStatus">Contributed in at least 1 Round</li>
+            <li id="amountStatus">Contributed at least $10</li>
           </ul>
         </div>
       </div>
@@ -330,7 +317,7 @@
       <div class="grid grid-cols-3  gap-5">
         <div class="col px-2">
           <img
-              src="img/regenscore-social-drop.png"
+              src="img/regenscore-stamp-drop.png"
               alt="" class="w-full object-cover xl:rounded-3xl">
           <div class="text-center pt-2">
             <button
@@ -341,7 +328,7 @@
         </div>
         <div class="col px-2">
           <img
-              src="img/regenscore-stamp-drop.png"
+              src="img/regenscore-social-drop.png"
               alt="" class="w-full object-cover xl:rounded-3xl">
           <div class="text-center pt-2">
             <button
@@ -364,7 +351,7 @@
       </div>
     </div>
 
-    <footer>
+    <footer class="py-5">
       <p class="mt-10 text-center text-xs leading-5 text-gray-500">&copy; 2023
         reserved.</p>
     </footer>
