@@ -283,7 +283,7 @@ $walletAddress = $_GET['walletAddress'];
           }
       }
   </script>
-  <title>Data Dashboard</title>
+  <title>Regen Score</title>
 </head>
 <body>
 
