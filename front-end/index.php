@@ -290,7 +290,13 @@ $walletAddress = $_GET['walletAddress'];
 
 <div class="bg-white">
   <!-- Header -->
-
+  <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
+    <div class="grid grid-cols-12 gap-5">
+      <div class="col-span-12 text-black">
+        <h1 class="font-bold tracking-tight text-gray-900 text-6xl">RegenScore</h1>
+      </div>
+    </div>
+  </div>
 
   <main class="isolate">
     <!-- Hero section -->
@@ -319,8 +325,8 @@ $walletAddress = $_GET['walletAddress'];
         <div class="mx-auto max-w-7xl px-6 pb-32 pt-36 sm:pt-60 lg:px-8 lg:pt-32">
           <div class="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
             <div class="w-full max-w-xl lg:shrink-0 xl:max-w-2xl text-center">
-              <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Airdrops for people who create
-                value</h1>
+              <h2 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Airdrops for people who create
+                value</h2>
               <p class="relative mt-6 text-lg leading-8 text-gray-600 sm:max-w-md lg:max-w-none">RegenScore is a
                 platform where regens can earn airdrops for creating value. We aggregate open data, measure regen
                 activity, and create incentives for people to level up and unlock crypto rewards.</p>
@@ -442,7 +448,7 @@ $walletAddress = $_GET['walletAddress'];
           <img
               src="img/regenscore-funding-drop.png"
               alt="" class="w-full object-cover xl:rounded-3xl">
-          <div class="text-center pt-2">
+          <div class="text-center pt-2"  id="gitcoinTotalContributionAmountStatus">
             Connect your wallet to see if your eligible
 
           </div>
