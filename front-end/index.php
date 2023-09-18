@@ -8,6 +8,9 @@ $walletAddress = $_GET['walletAddress'];
 <head>
 
   <meta charset="UTF-8">
+  <link rel="icon"
+        type="image/png"
+        href="img/favicon.png" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://kit.fontawesome.com/77adf10444.js" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css"/>
@@ -366,14 +369,7 @@ $walletAddress = $_GET['walletAddress'];
     <div class="mt-32 sm:mt-40 xl:mx-auto xl:max-w-7xl xl:px-8">
       <div class="grid grid-cols-12 gap-5">
         <div class="col-span-12 text-black">
-          <form id="walletAddressForm">
-            <label for="walletAddress">Enter Coreum your wallet address:</label>
-            <input type="text" id="walletAddress" name="walletAddress" class="border"
-                   value="<?php echo $walletAddress; ?>" required>
-            <input
-                class="rounded-md bg-gray-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                type="submit" value="Submit">
-          </form>
+
           <h2 class="text-3xl font-bold pb-3">Connect your wallet to see if your eligible</h2>
 
           <!-- Display a connect button and the current account -->
@@ -389,12 +385,6 @@ $walletAddress = $_GET['walletAddress'];
 
         </div>
         <div class="col-span-4">
-          <h2 class="text-2xl font-bold">Passport Score</h2>
-          <ul class="list-none pt-3">
-            <li class="" id="scoreIndicator">Score 20 or above</li>
-          </ul>
-        </div>
-        <div class="col-span-4">
           <h2 class="text-2xl font-bold">Social checklist</h2>
           <span>Minimum amount 1</span>
           <ul class="list-none pt-3">
@@ -405,6 +395,13 @@ $walletAddress = $_GET['walletAddress'];
             <li id="twitterStatus">Twitter</li>
           </ul>
         </div>
+        <div class="col-span-4">
+          <h2 class="text-2xl font-bold">Passport Score</h2>
+          <ul class="list-none pt-3">
+            <li class="" id="scoreIndicator">Score 20 or above</li>
+          </ul>
+        </div>
+
         <div class="col-span-4">
           <h2 class="text-2xl font-bold">Gitcoin Grants</h2>
           <span>Minimum amount 1</span>
@@ -422,6 +419,7 @@ $walletAddress = $_GET['walletAddress'];
     <!-- Image section -->
     <div class="pt-10 xl:mx-auto xl:max-w-7xl xl:px-8 ">
       <div class="grid grid-cols-3  gap-5">
+
         <div class="col px-2">
           <img
               src="img/regenscore-social-drop.png"
@@ -438,30 +436,22 @@ $walletAddress = $_GET['walletAddress'];
             Connect your wallet to see if your eligible
           </div>
         </div>
+
+
         <div class="col px-2">
           <img
               src="img/regenscore-funding-drop.png"
               alt="" class="w-full object-cover xl:rounded-3xl">
           <div class="text-center pt-2">
-            <button
-                class="rounded-md bg-gray-400 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-              Not eligible
-            </button>
+            Connect your wallet to see if your eligible
+
           </div>
         </div>
       </div>
     </div>
 
-
-
-    <div class="text-center">
-      <h2 class="text-5xl font-bold pb-8 pt-24 text-black">Passport stamps data analysis </h2>
-      <img class="mx-auto" src="img/img.png">
-    </div>
-
     <footer class="py-5">
-      <p class="mt-10 text-center text-xs leading-5 text-gray-500">&copy; 2023
-        reserved.</p>
+      <p class="mt-10 text-center text-xs leading-5 text-gray-500"> Mosaic Labs, Inc. &copy; All Rights Reserved 2023</p>
     </footer>
   </main>
 </div>
